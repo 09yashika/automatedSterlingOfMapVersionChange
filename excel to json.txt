@@ -1,0 +1,13 @@
+import pandas as pd
+import os
+import json
+os.getcwd()
+os.chdir('E:\STUDY\Tutorials\Python\src')
+xls_file = pd.ExcelFile('SegmentUsage.xlsx')
+xls_file
+xls_file.sheet_names
+df = xls_file.parse('SegmentUsage')
+df
+dict_of_dataframe = df.to_dict(orient='dict')
+with open('data.json', 'w') as fp:
+    json.dump(dict_of_dataframe, fp)

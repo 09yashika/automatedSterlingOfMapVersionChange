@@ -1,0 +1,20 @@
+import json
+import xmltodict
+import os
+
+os.getcwd()
+os.chdir('E:\STUDY\Tutorials\Python\src') 
+with open("NEW_MAP.xml", 'r') as f:
+    xmlString = f.read()
+
+
+print("XML input (NEW_MAP.xml):")
+print(xmlString)
+
+jsonString = json.dumps(xmltodict.parse(xmlString), indent=4)
+
+print("\nJSON output(xmltojsonNEW_MAP.json):")
+print(jsonString)
+
+with open("xmltojsonNEW_MAP.json", 'w') as f:
+    f.write(jsonString)
